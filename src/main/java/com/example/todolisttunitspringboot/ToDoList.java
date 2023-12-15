@@ -1,14 +1,21 @@
 package com.example.todolisttunitspringboot;
 
+import jakarta.persistence.*;
 import lombok.Setter;
 
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 
 @Setter
+@Entity
 public class ToDoList {
+    @OneToMany
     private ArrayList<Item> itemList;
     static EmailSenderService emailSenderService;
+    @Id
+    private Long id;
+
+    public ToDoList() {}
 
     public ToDoList(User user) throws InstantiationException {
         if (user.isValid()) {

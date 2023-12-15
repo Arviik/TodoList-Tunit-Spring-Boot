@@ -12,12 +12,12 @@ public class ItemController {
         this.repository = repository;
     }
 
-    @PostMapping
-    Item newToDoList(@RequestBody Item newItem){
+    @PostMapping("/users/{id}/todos/items")
+    Item newItem(@RequestBody Item newItem){
         return repository.save(newItem);
     }
 
-    @GetMapping
+    @GetMapping("/users/{id}/todos/items")
     Item getToDoItems(@PathVariable Long id){
         return repository.getReferenceById(id);
     }

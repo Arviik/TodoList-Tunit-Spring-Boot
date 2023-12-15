@@ -1,20 +1,32 @@
 package com.example.todolisttunitspringboot;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 import lombok.Getter;
+import lombok.Setter;
 
 import java.time.LocalDate;
 
 @Getter
+@Setter
+@Entity
 public class Item {
     private String name;
     private String content;
     private LocalDate creationDate;
+    @Id
+    private Long id;
+
+    public Item() {}
 
     public Item(String name, String content) {
         this.name = name;
         this.content = content;
         this.creationDate = LocalDate.now();
     }
+
+
+
 
     public boolean checkContent() {
         if (this.content == null || this.content.isEmpty()) {
@@ -26,16 +38,9 @@ public class Item {
         return true;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public void setContent(String content) {
         checkContent();
         this.content = content;
     }
 
-    public void setCreationDate(LocalDate creationDate) {
-        this.creationDate = creationDate;
-    }
 }

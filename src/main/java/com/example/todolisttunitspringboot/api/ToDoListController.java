@@ -15,7 +15,7 @@ public class ToDoListController {
         this.repository = repository;
     }
 
-    @PostMapping
+    @PostMapping("/users/{id}/todos")
     ToDoList newToDoList(@RequestBody ToDoList newToDo){
         return repository.save(newToDo);
     }
