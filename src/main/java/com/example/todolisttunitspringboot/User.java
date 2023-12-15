@@ -1,3 +1,5 @@
+package com.example.todolisttunitspringboot;
+
 import lombok.Getter;
 
 @Getter

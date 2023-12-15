@@ -1,3 +1,5 @@
+package com.example.todolisttunitspringboot;
+
 public class EmailSenderService {
 
     public boolean sendEmail(String email) {
