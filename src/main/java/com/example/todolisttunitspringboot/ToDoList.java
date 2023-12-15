@@ -12,6 +12,7 @@ public class ToDoList {
     @OneToMany
     private ArrayList<Item> itemList;
     static EmailSenderService emailSenderService;
+    private int user_id;
     @Id
     private Long id;
 
@@ -39,6 +40,11 @@ public class ToDoList {
         } catch (IllegalArgumentException e) {
             throw new IllegalArgumentException(e);
         }
+    }
+
+    @Override
+    public String toString() {
+        return user_id + " ";
     }
 
     public boolean save() {

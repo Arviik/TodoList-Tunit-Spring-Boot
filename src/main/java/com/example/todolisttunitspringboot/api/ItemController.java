@@ -17,8 +17,5 @@ public class ItemController {
         return repository.save(newItem);
     }
 
-    @GetMapping("/users/{id}/todos/items")
-    Item getToDoItems(@PathVariable Long id){
-        return repository.getReferenceById(id);
-    }
+
 }

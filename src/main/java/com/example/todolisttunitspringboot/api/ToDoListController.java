@@ -2,10 +2,7 @@ package com.example.todolisttunitspringboot.api;
 
 import com.example.todolisttunitspringboot.Item;
 import com.example.todolisttunitspringboot.ToDoList;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class ToDoListController {
@@ -18,5 +15,10 @@ public class ToDoListController {
     @PostMapping("/users/{id}/todos")
     ToDoList newToDoList(@RequestBody ToDoList newToDo){
         return repository.save(newToDo);
+    }
+
+    @GetMapping("/users/{id}/todos/items")
+    ToDoList getToDoList(@PathVariable Long id){
+        return repository.getReferenceById(id);
     }
 }
