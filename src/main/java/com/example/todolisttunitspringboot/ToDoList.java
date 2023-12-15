@@ -9,8 +9,6 @@ import java.util.ArrayList;
 @Setter
 @Entity
 public class ToDoList {
-    @OneToMany
-    private ArrayList<Item> itemList;
     static EmailSenderService emailSenderService;
     private int user_id;
     @Id
@@ -18,7 +16,7 @@ public class ToDoList {
 
     public ToDoList() {}
 
-    public ToDoList(User user) throws InstantiationException {
+    /*public ToDoList(User user) throws InstantiationException {
         if (user.isValid()) {
             itemList = new ArrayList<>();
         } else {
@@ -40,7 +38,7 @@ public class ToDoList {
         } catch (IllegalArgumentException e) {
             throw new IllegalArgumentException(e);
         }
-    }
+    }*/
 
     @Override
     public String toString() {

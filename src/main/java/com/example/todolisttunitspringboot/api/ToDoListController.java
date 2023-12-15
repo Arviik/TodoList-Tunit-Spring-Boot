@@ -6,19 +6,24 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class ToDoListController {
-    private final ToDoListRepository repository;
+    private final ToDoListRepository toDoRepository;
+    private final ItemRepository itemRepository;
 
-    public ToDoListController(ToDoListRepository repository) {
-        this.repository = repository;
+    public ToDoListController(ToDoListRepository repository, ItemRepository itemRepository) {
+        this.toDoRepository = repository;
+        this.itemRepository = itemRepository;
     }
 
     @PostMapping("/users/{id}/todos")
     ToDoList newToDoList(@RequestBody ToDoList newToDo){
-        return repository.save(newToDo);
+        return toDoRepository.save(newToDo);
     }
 
     @GetMapping("/users/{id}/todos/items")
-    ToDoList getToDoList(@PathVariable Long id){
-        return repository.getReferenceById(id);
+    public String getToDoList(@PathVariable Long id){
+        System.out.println(id);
+        System.out.println(itemRepository.getReferenceById(id).getTodolist_id());
+        itemRepository.findToDoListId(id);
+        return itemRepository.findById(id).get().toString();
     }
 }

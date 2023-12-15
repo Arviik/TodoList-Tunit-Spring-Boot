@@ -1,5 +1,6 @@
 package com.example.todolisttunitspringboot;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import lombok.Getter;
@@ -16,6 +17,8 @@ public class Item {
     private LocalDate creationDate;
     @Id
     private Long id;
+    @Column(name = "todolist_id")
+    private Long todolist_id;
 
     public Item() {}
 
